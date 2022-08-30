@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ValidationForm';
+
+  constructor(){
+    console.log("app component.")
+  }
 }

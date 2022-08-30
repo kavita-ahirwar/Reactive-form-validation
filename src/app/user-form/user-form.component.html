@@ -1,0 +1,132 @@
+<!-- <p>user-form works!</p> -->
+<div class="container">
+    <form class="row g-3" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+        <div class="col-md-6">
+            <div class="form-group mt-5">
+                <input type=" text " class="form-control " placeholder="Location Id " formControlName="Location_Id" [ngClass]="{ 'is-invalid': submitted && f.Location_Id.errors }">
+                <span *ngIf="( f.Location_Id.touched && !f.Location_Id.valid && !f.Location_Id.errors?.pattern ) " style="color: red;">Location contact Id is required</span>
+                <div *ngIf="f.Location_Id.errors?.pattern" style="color: red;">please enter 10 number </div>
+                <!-- <div *ngIf="(submitted && f.Location_Id.errors)" class="invalid-feedback">
+                    <div *ngIf="f.Location_Id.errors.required">Location Id is required</div>
+                </div> -->
+            </div>
+            <div class="form-group mt-5 ">
+                <input type="text " class="form-control " placeholder="Location Display Name " formControlName="Location_Display_Name" [ngClass]="{ 'is-invalid': submitted && f.Location_Display_Name.errors }">
+                <span *ngIf="( f.Location_Display_Name.touched && !f.Location_Display_Name.valid ) " style="color: red;">Location Display Name is required</span>
+                <div *ngIf="f.Location_Display_Name.errors?.pattern" style="color: red;">only alphabate allow</div>
+                <!-- <div *ngIf="submitted && f.Location_Display_Name.errors" class="invalid-feedback">
+                    <div *ngIf="f.Location_Display_Name.errors.required">Location Display Name is required</div>
+                </div> -->
+            </div>
+
+            <div class="heading mt-5 ">
+                <h1>Address Details</h1>
+            </div>
+            <div class="form-group mt-5 ">
+                <input type="text " class="form-control " placeholder="search Address " formControlName="Search" [ngClass]="{ 'is-invalid': submitted && f.Search.errors }">
+                <span *ngIf="( f.Search.touched && !f.Search.valid && !f.Search.errors?.pattern ) " style="color: red;">Search is required</span>
+                <div *ngIf="f.Search.errors?.pattern" style="color: red;">please enter only alphabate </div>
+                <!-- <div *ngIf="submitted && f.Search.errors" class="invalid-feedback">
+                    <div *ngIf="f.Search.errors.required">Search is required</div>
+                </div> -->
+            </div>
+            <div class="row ">
+                <div class="col mt-5 ">
+                    <input type="text " class="form-control " placeholder="Street " formControlName="Street" [ngClass]="{ 'is-invalid': submitted && f.Street.errors }">
+                    <span *ngIf="( f.Street.touched && !f.Street.valid && !f.Street.errors?.pattern ) " style="color: red;">Street is required</span>
+                    <div *ngIf="f.Street.errors?.pattern" style="color: red;">please enter only alphabate </div>
+                    <!-- <div *ngIf="submitted && f.Street.errors" class="invalid-feedback">
+                        <div *ngIf="f.Street.errors.required">Street is required</div>
+                    </div> -->
+                </div>
+                <div class="col mt-5 ">
+                    <input type="text " class="form-control " placeholder="City " formControlName="City" [ngClass]="{ 'is-invalid': submitted && f.City.errors }">
+                    <span *ngIf="( f.City.touched && !f.City.valid && f.City.errors?.pattern ) " style="color: red;">City is required</span>
+                    <div *ngIf="f.City.errors?.pattern" style="color: red;">please enter only alphabate </div>
+
+                    <!-- <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+                        <div *ngIf="f.City.errors.required">City is required</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col mt-5 ">
+                    <input type="text " class="form-control " placeholder="State " formControlName="State" [ngClass]="{ 'is-invalid': submitted && f.State.errors }">
+                    <span *ngIf="( f.State .touched && !f.State .valid && !f.State.errors?.pattern ) " style="color: red;">State  is required</span>
+                    <div *ngIf="f.State.errors?.pattern" style="color: red;">please enter only alphabate </div>
+                    <!-- <div *ngIf="submitted && f.State.errors" class="invalid-feedback">
+                        <div *ngIf="f.State.errors.required">State is required</div>
+                    </div> -->
+                </div>
+                <div class="col mt-5 ">
+                    <input type="text " class="form-control " placeholder="Country " formControlName="Country" [ngClass]="{ 'is-invalid': submitted && f.Country.errors }">
+                    <span *ngIf="( f.Country.touched && !f.Country.valid && !f.Country.errors?.pattern) " style="color: red;">Country is required</span>
+                    <div *ngIf="f.Country.errors?.pattern" style="color: red;">please enter only alphabate </div>
+                    <!-- <div *ngIf="submitted && f.Country.errors" class="invalid-feedback">
+                        <div *ngIf="f.Country.errors.required">Country is required</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col mt-5 ">
+                <input type="text " class="form-control " placeholder="Postalcode " formControlName="Postalcode" [ngClass]="{ 'is-invalid': submitted && f.Postalcode.errors }">
+                <span *ngIf="( f.Postalcode.touched && !f.Postalcode.valid && !f.Postalcode.errors?.pattern ) " style="color: red;">Postalcode is required</span>
+                <div *ngIf="f.Postalcode.errors?.pattern" style="color: red;">please enter only number </div>
+                <!-- <div *ngIf="submitted && f.Postalcode.errors" class="invalid-feedback">
+                    <div *ngIf="f.Postalcode.errors.required">Postalcode is required</div>
+                </div> -->
+            </div>
+            <div class="col-12 mt-5 ">
+                <button type="reset" class="btn btn-outline-secondary " (click)="onReset()">cancel</button>&nbsp;
+                <!-- <button type="reset " class="btn btn-outline-secondary " (click)="onReset()">cancel</button> &nbsp; -->
+                <button type="button " class="btn btn-danger ">Submit</button>
+            </div>
+        </div>
+        <div class="col-md-6 ">
+            <div class="form-group mt-5 ">
+                <input type="text " class="form-control " placeholder="Location Contact Title " formControlName="Location_Title" [ngClass]="{ 'is-invalid': submitted && f.Location_Title.errors }">
+                <span *ngIf="( f.Location_Title.touched && !f.Location_Title.valid && !f.Location_Title.errors?.pattern ) " style="color: red;">Location_Title is required</span>
+                <div *ngIf="f.Location_Title.errors?.pattern" style="color: red;">please enter only alphabate </div>
+                <!-- <div *ngIf="submitted && f.Location_Title.errors" class="invalid-feedback">
+                    <div *ngIf="f.Location_Title.errors.required">Location Title is required</div>
+                </div> -->
+            </div>
+            <div class="form-group mt-5 ">
+                <input type="text " class="form-control " placeholder="Location Contact Name " formControlName="Location_Name" [ngClass]="{ 'is-invalid': submitted && f.Location_Name.errors }">
+                <span *ngIf="( f.Location_Name.touched && !f.Location_Name.valid && !f.Location_Name.errors?.pattern) " style="color: red;">Location_Name is required</span>
+                <div *ngIf="f.Location_Name.errors?.pattern" style="color: red;">please enter only alphabate </div>
+                <!-- <div *ngIf="submitted && f.Location_Name.errors" class="invalid-feedback">
+                    <div *ngIf="f.Location_Name.errors.required">Location Name is required</div>
+                </div> -->
+            </div>
+            <div class="row ">
+                <div class="col mt-5 ">
+                    <div class="input-group mt-2 ">
+                        <button class="btn btn-outline-secondary dropdown-toggle " type="input " data-bs-toggle="dropdown " aria-expanded="false ">+1USA<Code></Code></button>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item " href=" ">Action</a></li>
+                            <li><a class="dropdown-item " href=" ">Another action</a></li>
+                            <li><a class="dropdown-item " href=" ">Something else here</a></li>
+                        </ul>
+                        <input type="number " class="form-control " placeholder="Location Contact Number " formControlName="Location_Number" [ngClass]="{ 'is-invalid': submitted && f.Location_Number.errors }">
+                        <!-- <div *ngIf="submitted && f.Location_Number.errors" class="invalid-feedback">
+                            <div *ngIf="f.Location_Number.errors.required">Location Number is required</div>
+                        </div> -->
+                    </div>
+                    <span *ngIf="( f.Location_Number.touched && !f.Location_Number.valid && !f.Location_Number.errors?.pattern) " style="color: red;">Location_Number is required</span>
+                    <div *ngIf="f.Location_Number.errors?.pattern" style="color: red;">please enter 10 number </div>
+                    <!-- <div *ngIf="f.Location_Number.errors?.maxLength" style="color: red;">maximum 10 number </div> -->
+                </div>
+            </div>
+            <div class="form-group mt-5 ">
+                <input type="text " class="form-control " placeholder="Location Contact Email " formControlName="Location_Email" [ngClass]="{ 'is-invalid': submitted && f.Location_Email.errors }">
+                <span *ngIf="!f.Location_Email.valid && f.Location_Email.touched && !f.Location_Email.errors?.pattern" style="color: red;">Location_Email is required</span>
+                <div *ngIf="f.Location_Email.errors?.pattern" style="color: red;">please enter valid Email</div>
+                <!-- <div *ngIf="submitted && f.Location_Email.errors" class="invalid-feedback">
+                    <div *ngIf="f.Location_Email.errors.required">Location Email is required</div>
+                </div> -->
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" pattern[("^((\\+91-?)|0)?[0-9]{10}$")*]-->
